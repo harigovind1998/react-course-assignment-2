@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import UserInput from "./Components/UserInput";
+import ValidationComponent from "./Components/ValidationComponent";
+import CharComponent from './Components/CharComponent'
+class App extends Component {
+  state = {
+    text: "Hello World!".split(""), 
+    length: 12
+  };
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  textChangedHandler = (event)=>{
+    this.setState({
+      text: event.target.value.split(""), 
+      length: event.target.value.length
+    })
+
+  }
+
+  removeCharHandler = (key) =>{
+    let wordArr = [...this.state.text];
+    wordArr.splice(key,1);
+    let newLen = this.state.length - 1;
+    this.setState({
+      text: wordArr,
+      length: newLen
+    })
+
+  }
+
+  getChars = () =>{
+    return(
+      <div>
+        {this.state.text.map((letter,index)=>{
+          return(<CharComponent value={letter} key={index} click={()=>this.removeCharHandler(index)}/>);
+        })}
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div style={{margin : 'auto'}}>
+        <h1 >Assignment 2</h1>
+        <UserInput changed={(event)=>this.textChangedHandler(event)} value={this.state.text.join("")}/>
+        <ValidationComponent length={this.state.length} />
+        {this.getChars()}
+      </div>
+    );
+  }
 }
 
 export default App;
