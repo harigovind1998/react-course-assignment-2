@@ -39,8 +39,8 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{margin : 'auto'}}>
-        <h1 >Assignment 2</h1>
+      <div>
+        <h1 style={{margin: 'auto', textAlign: 'center'}}>Assignment 2</h1>
         <UserInput changed={(event)=>this.textChangedHandler(event)} value={this.state.text.join("")}/>
         <ValidationComponent length={this.state.length} />
         {this.getChars()}
