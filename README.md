@@ -1,3 +1,10 @@
+## Summary
+Assignment 2 of "React- the Complete Guide" on Udemy
+### Covered Topics
+* Conditional component rendering
+* Using list functions to create components
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
