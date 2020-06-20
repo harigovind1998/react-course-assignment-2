@@ -1,5 +1,6 @@
 ## Summary
-Assignment 2 of "React- the Complete Guide" on Udemy
+Assignment 2 of ("React- the Complete Guide") [https://www.udemy.com/course/react-the-complete-guide-incl-redux/] on Udemy
+
 ### Covered Topics
 * Conditional component rendering
 * Using list functions to create components
